@@ -1,0 +1,58 @@
+[
+    {
+      "img": "https://i.ibb.co/F7LC5wy/1.jpg",
+      "name": "John Doe",
+      "place": "New York",
+      "houseName": "Doe's Residence",
+      "price": 500000
+    },
+    {
+      "img": "https://i.ibb.co/YWSBv6z/2.jpg",
+      "name": "Jane Smith",
+      "place": "Los Angeles",
+      "houseName": "Smith's Mansion",
+      "price": 750000
+    },
+    {
+      "img": "https://i.ibb.co/f1B63Ch/3.jpg",
+      "name": "Bob Johnson",
+      "place": "Chicago",
+      "houseName": "Johnson's Estate",
+      "price": 400000
+    },
+    {
+      "img": "https://i.ibb.co/r6JccdM/4.jpg",
+      "name": "Alice Brown",
+      "place": "Houston",
+      "houseName": "Brown's Cottage",
+      "price": 300000
+    },
+    {
+      "img": "https://i.ibb.co/dGkxtQ8/5.jpg",
+      "name": "Mike Davis",
+      "place": "Seattle",
+      "houseName": "Davis's Bungalow",
+      "price": 600000
+    },
+    {
+      "img": "https://i.ibb.co/5nZPp6j/6.jpg",
+      "name": "Emily Taylor",
+      "place": "Miami",
+      "houseName": "Taylor's Villa",
+      "price": 800000
+    },
+    {
+      "img": "https://i.ibb.co/hBH70mf/7.jpg",
+      "name": "Mike Davis",
+      "place": "Seattle",
+      "houseName": "Davis's Bungalow",
+      "price": 600000
+    },
+    {
+      "img": "https://i.ibb.co/mtX9kJk/island-cat.webp",
+      "name": "Emily Taylor",
+      "place": "Miami",
+      "houseName": "Taylor's Villa",
+      "price": 800000
+    }
+  ]
