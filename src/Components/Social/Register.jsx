@@ -7,10 +7,10 @@ import UseAuth from "../Hooks/UseAuth";
 
 const Register = () => {
   const { register, handleSubmit, reset } = useForm();
-  const { createUser, updateUserProfile } = UseAuth();
+  const { signIn, updateUserProfile } = UseAuth();
   const navigate = useNavigate();
   const onSubmit = (data) => {
-    createUser(data.email, data.password)
+    signIn(data.email, data.password)
       .then((res) => {
         console.log(res.user);
         updateUserProfile(data.name, data.photoUrl)

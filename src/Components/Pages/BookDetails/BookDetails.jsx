@@ -1,19 +1,31 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
+import UseAuth from "../../Hooks/UseAuth";
+import UseAxios from "../../Hooks/UseAxios";
 
 const BookDetails = () => {
   const loaderData = useLoaderData();
-  const { _id, img, name, place, price } = loaderData;
+  const { _id, img, name, price } = loaderData;
+  const { user } = UseAuth();
+  const axios = UseAxios();
 
-  const {
-    register,
-    handleSubmit,
-    watch,
-    formState: { errors },
-  } = useForm();
+  const { register, handleSubmit } = useForm();
   const onSubmit = (data) => {
-    console.log(data.name, data.date, data.email, data.amount);
+    const order = {
+      name: user.name,
+      email: user.email,
+      price: user.price,
+      img: img,
+      _id: _id,
+    };
+    console.log(order);
+
+    axios.post(`booking`, order).then((res) => {
+      console.log(res.data);
+    });
+
+    // console.log(data.name, data.date, data.email, data.amount);
   };
 
   return (
@@ -38,6 +50,7 @@ const BookDetails = () => {
                 type="text"
                 placeholder="Your Name"
                 {...register("name")}
+                defaultValue={user?.name}
               />
             </div>
             <div class="mb-4">
@@ -52,6 +65,7 @@ const BookDetails = () => {
                 id="date"
                 type="date"
                 {...register("date")}
+                defaultValue={user?.date}
               />
             </div>
             <div class="mb-4">
@@ -67,6 +81,7 @@ const BookDetails = () => {
                 type="email"
                 placeholder="your@email.com"
                 {...register("email")}
+                defaultValue={user?.email}
               />
             </div>
             <div class="mb-4">
@@ -82,6 +97,7 @@ const BookDetails = () => {
                 type="number"
                 placeholder="Amount"
                 {...register("amount")}
+                defaultValue={user?.amount}
               />
             </div>
             <div class="flex items-center justify-between">

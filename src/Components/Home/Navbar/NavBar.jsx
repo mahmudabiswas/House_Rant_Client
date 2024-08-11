@@ -3,15 +3,19 @@ import { Link, NavLink } from "react-router-dom";
 import ColorTheem from "./ColorTheem";
 import NavProfile from "./NavProfile";
 import logo from "../../../assets/manName/favicon.ico";
+import UseAuth from "../../Hooks/UseAuth";
 const NavBar = () => {
+  const { user } = UseAuth();
   const navItems = (
     <>
       <li>
         <NavLink to="/">Home</NavLink>
       </li>
-      <li>
-        <NavLink to="/course">Course</NavLink>
-      </li>
+      {user && (
+        <li>
+          <NavLink to="/bookings">Bookings</NavLink>
+        </li>
+      )}
 
       <li>
         <NavLink to="/about">About</NavLink>
@@ -25,7 +29,7 @@ const NavBar = () => {
 
   return (
     <div>
-      <div className="navbar lg:overflow-hidden  dark:text-white bg-base-100">
+      <div className="navbar  lg:overflow-hidden  dark:text-white bg-base-100">
         <div className="navbar-start ">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">

@@ -1,19 +1,34 @@
 import React, { useContext } from "react";
 import { useForm } from "react-hook-form";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 import Google from "./Google";
 import UseAuth from "../Hooks/UseAuth";
+import UseAxios from "../Hooks/UseAxios";
 
 const Login = () => {
   const { register, handleSubmit, reset } = useForm();
   const { logIn } = UseAuth();
   const navigate = useNavigate();
+  const location = useLocation();
+  const axios = UseAxios();
   const onSubmit = (data) => {
     logIn(data.email, data.password)
       .then((res) => {
-        console.log(res);
-        navigate("/");
+        const loggedUser = res.user;
+        console.log(loggedUser);
+        const user = { email: data.email };
+
+        // access token
+
+        axios
+          .post("http://localhost:5000/jwt", user, { withCredentials: true })
+          .then((response) => {
+            console.log(response.data);
+            if (response.data.success) {
+              navigate(location?.state ? location?.state : "/");
+            }
+          });
       })
       .catch((err) => {
         console.log(err);
@@ -69,7 +84,7 @@ const Login = () => {
                     class="shadow appearance-none border border-red-500 rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
                     id="password"
                     type="password"
-                    placeholder="******************"
+                    placeholder="please enter your password"
                     {...register("password")}
                   />
                   <p class="text-red-500 text-xs italic">
@@ -86,7 +101,7 @@ const Login = () => {
                     <input
                       id="submit"
                       type="Submit"
-                      placeholder="******************"
+                      placeholder="submit"
                       {...register("submit")}
                     />
                   </button>
@@ -111,3 +126,17 @@ const Login = () => {
 };
 
 export default Login;
+
+// fetch(`http://localhost:5000/jwt`, user, {
+//   method: "post",
+//   headers: {
+//     "content-type": "application/json",
+//   },
+//   body: JSON.stringify({ status: "confirm" }),
+// })
+//   .then((res) => {
+//     res.json();
+//   })
+//   .then((data) => {
+//     console.log(data);
+//   });

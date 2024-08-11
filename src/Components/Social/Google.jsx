@@ -5,13 +5,9 @@ const Google = () => {
   const { googleSignIn } = UseAuth();
 
   const handleGoogleSignIn = () => {
-    googleSignIn()
-      .then((res) => {
-        console.log(res);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    googleSignIn().then((res) => {
+      console.log(res);
+    });
   };
   return (
     <button class="flex items-center justify-center w-full px-4 py-2 my-3 text-sm font-medium text-white bg-red-600 rounded-md hover:bg-red-700">

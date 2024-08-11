@@ -6,13 +6,9 @@ const NavProfile = () => {
   const { user, logOut } = UseAuth();
 
   const handleLogOut = () => {
-    logOut()
-      .then((res) => {
-        console.log(res.user);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    logOut().then((res) => {
+      console.log(res.user);
+    });
   };
 
   return (
@@ -20,12 +16,12 @@ const NavProfile = () => {
       <div className="dropdown dropdown-left z-30">
         <div tabIndex={0} role="button" className=" m-1">
           <div className="avatar">
-            <div className="w-12 rounded-full">
+            <div className="w-12 rounded-full bg-black  ">
               {user && (
                 <img
                   src={user?.photoURL}
                   alt={user?.displayName}
-                  className="border-red-50"
+                  className="border-red-500"
                 />
               )}
             </div>
