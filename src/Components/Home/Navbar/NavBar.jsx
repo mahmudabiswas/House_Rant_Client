@@ -20,10 +20,6 @@ const NavBar = () => {
       <li>
         <NavLink to="/about">About</NavLink>
       </li>
-
-      <li>
-        <NavLink to="/footer">Footer</NavLink>
-      </li>
     </>
   );
 

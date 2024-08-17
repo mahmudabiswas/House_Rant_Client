@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
 import UseAuth from "../../Hooks/UseAuth";
-import UseAxios from "../../Hooks/UseAxios";
+
 import Booked from "./Booked";
+import UseAxiosSecure from "../../Hooks/useAxiosSecure";
 
 const Bookings = () => {
   const { user } = UseAuth();
   const [bookings, setBookings] = useState([]);
-  const axios = UseAxios();
+  const axios = UseAxiosSecure();
 
   // const url = `http://localhost:5000/booking?email=${user?.email}`;
   useEffect(() => {

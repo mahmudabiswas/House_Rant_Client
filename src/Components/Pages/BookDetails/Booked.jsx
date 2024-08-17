@@ -1,15 +1,15 @@
 import React from "react";
-import UseAxios from "../../Hooks/UseAxios";
+import UseAxiosSecure from "../../Hooks/useAxiosSecure";
 
 const Booked = ({ booked, bookings, setBookings, handleConfirm }) => {
   const { _id, name, place, email, price, img, status } = booked;
-  const axios = UseAxios();
+  const axios = UseAxiosSecure();
 
   // deleted data
   const handleDeletedItem = (id) => {
     const proceed = "confirm your deleted id";
     if (proceed) {
-      axios.delete(`booking/${id}`).then((res) => {
+      axios.delete(`/booking/${id}`).then((res) => {
         console.log(res.data);
         if (res.data.deletedCount > 0) {
           alert("Deleted Successfully");
