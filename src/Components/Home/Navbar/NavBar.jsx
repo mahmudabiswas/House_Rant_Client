@@ -25,7 +25,7 @@ const NavBar = () => {
 
   return (
     <div>
-      <div className="navbar  lg:overflow-hidden  dark:text-white bg-base-100">
+      <div className="navbar overflow-hidden lg:overflow-hidden  dark:text-white bg-base-100">
         <div className="navbar-start ">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -66,7 +66,7 @@ const NavBar = () => {
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">{navItems}</ul>
         </div>
-        <div className="navbar-end w-full">
+        <div className="navbar-end w-full mr-8">
           <NavProfile />
           {/* toggle button */}
           <ColorTheem />

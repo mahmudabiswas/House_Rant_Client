@@ -7,6 +7,8 @@ import Register from "../Social/Register";
 import BookDetails from "../Pages/BookDetails/BookDetails";
 import Bookings from "../Pages/BookDetails/bookings";
 import PrivateRoutes from "./PrivateRoutes";
+import Footer from "../Pages/Footer.jsx/Footer";
+import AboutMe from "../Pages/AboutMe/AboutMe";
 
 const Routes = createBrowserRouter([
   {
@@ -18,8 +20,16 @@ const Routes = createBrowserRouter([
         element: <MainLayout />,
       },
       {
+        path: "/about",
+        element: <AboutMe />,
+      },
+      {
         path: "/bookDetails/:id",
-        element: <PrivateRoutes><BookDetails /></PrivateRoutes>,
+        element: (
+          <PrivateRoutes>
+            <BookDetails />
+          </PrivateRoutes>
+        ),
         loader: ({ params }) =>
           fetch(`http://localhost:5000/house/${params.id}`),
       },
@@ -39,6 +49,10 @@ const Routes = createBrowserRouter([
       {
         path: "/register",
         element: <Register />,
+      },
+      {
+        path: "/footer",
+        element: <Footer />,
       },
     ],
   },

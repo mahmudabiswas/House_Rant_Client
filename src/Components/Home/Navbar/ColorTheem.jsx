@@ -19,7 +19,7 @@ const ColorTheem = () => {
     document.querySelector("html").setAttribute("data-theme", localTheme);
   }, [theme]);
   return (
-    <label className="swap swap-rotate ml-3">
+    <label className="swap swap-rotate ">
       {/* this hidden checkbox controls the state */}
       <input
         onChange={handleToggle}
